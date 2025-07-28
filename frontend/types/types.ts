@@ -1,4 +1,6 @@
-interface Car {
+import * as React from "react";
+
+export interface Car {
   id: string;
   make: string;
   model: string;
@@ -25,4 +27,9 @@ interface Car {
   numBookings: number;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface ButtonType {
+  children: React.ReactNode;
+  className: string;
 }
