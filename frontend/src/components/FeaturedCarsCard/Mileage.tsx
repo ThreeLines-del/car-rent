@@ -1,4 +1,10 @@
-const Mileage = ({ children }) => {
+import React from "react";
+
+interface MileageType {
+  children: React.ReactNode;
+}
+
+const Mileage = ({ children }: MileageType) => {
   return (
     <div className="flex gap-1">
       <img className="h-4" src={"/icons/mileage.png"} alt="" />

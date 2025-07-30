@@ -1,4 +1,10 @@
-const FuelType = ({ children }) => {
+import React from "react";
+
+interface FuelTypeType {
+  children: React.ReactNode;
+}
+
+const FuelType = ({ children }: FuelTypeType) => {
   return (
     <div className="flex gap-1">
       <img className="h-4" src={"/icons/fuel.png"} alt="" />

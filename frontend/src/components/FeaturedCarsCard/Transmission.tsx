@@ -1,4 +1,10 @@
-const Transmission = ({ children }) => {
+import React from "react";
+
+interface TransmissionType {
+  children: React.ReactNode;
+}
+
+const Transmission = ({ children }: TransmissionType) => {
   return (
     <div className="flex gap-1">
       <img className="h-4" src={"/icons/transmission.png"} alt="" />

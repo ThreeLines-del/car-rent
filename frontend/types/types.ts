@@ -32,4 +32,5 @@ export interface Car {
 export interface ButtonType {
   children: React.ReactNode;
   className: string;
+  onClick?: () => void;
 }

@@ -19,35 +19,37 @@ const FeaturedCarsSection = () => {
   );
 
   return (
-    <div className="px-48 mt-5">
-      <div className="flex justify-between h-10 items-center">
-        <p className="text-xl text-gray-800 border-l-2 border-red-600 leading-5 pl-1 font-semibold">
-          Featured Cars
-        </p>
-        <div className="flex gap-1">
-          <p className="text-xs text-red-600">EXPLORE ALL</p>
-          <FaLongArrowAltRight className="text-red-600 text-sm" />
+    <div className="flex flex-col items-center">
+      <div className="w-fit mt-5">
+        <div className="flex justify-between h-10 items-center">
+          <p className="text-xl text-gray-800 border-l-2 border-[#cf1a17] leading-5 pl-1 font-semibold">
+            Featured Cars
+          </p>
+          <div className="flex gap-1">
+            <p className="text-xs text-[#cf1a17]">EXPLORE ALL</p>
+            <FaLongArrowAltRight className="text-[#cf1a17] text-sm" />
+          </div>
         </div>
-      </div>
 
-      <div className="h-90 border">
-        {data?.map((item) => (
-          <FeaturedCarsCard src={item.imageUrl}>
-            <CardDetails>
-              <Make>{item.make}</Make>
-              <Model>{item.model}</Model>
-              <Year>{item.year}</Year>
-              <DetailsDiv>
-                <FuelType>{item.fuelType}</FuelType>
-                <Mileage>{item.mileage}</Mileage>
-                <Transmission>{item.transmission}</Transmission>
-              </DetailsDiv>
-              <PriceDiv>
-                <PricePerDay>{item.pricePerDay}</PricePerDay>
-              </PriceDiv>
-            </CardDetails>
-          </FeaturedCarsCard>
-        ))}
+        <div className="grid grid-cols-2 gap-4 mt-5">
+          {data?.map((item) => (
+            <FeaturedCarsCard src={item.imageUrl}>
+              <CardDetails>
+                <Make>{item.make}</Make>
+                <Model>{item.model}</Model>
+                <Year>{item.year}</Year>
+                <DetailsDiv>
+                  <FuelType>{item.fuelType}</FuelType>
+                  <Mileage>{item.mileage}</Mileage>
+                  <Transmission>{item.transmission}</Transmission>
+                </DetailsDiv>
+                <PriceDiv>
+                  <PricePerDay>{item.pricePerDay}</PricePerDay>
+                </PriceDiv>
+              </CardDetails>
+            </FeaturedCarsCard>
+          ))}
+        </div>
       </div>
     </div>
   );

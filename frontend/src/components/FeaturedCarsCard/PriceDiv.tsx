@@ -1,6 +1,11 @@
 import { IoMdHeartEmpty } from "react-icons/io";
+import React from "react";
 
-const PriceDiv = ({ children }) => {
+interface PriceDivType {
+  children: React.ReactNode;
+}
+
+const PriceDiv = ({ children }: PriceDivType) => {
   return (
     <div className="flex justify-between mt-5 items-center">
       {children}

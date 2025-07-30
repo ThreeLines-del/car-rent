@@ -1,4 +1,11 @@
-const FeaturedCarsCard = ({ children, src }) => {
+import React from "react";
+
+interface FeaturedCarsCardType {
+  children: React.ReactNode;
+  src: string;
+}
+
+const FeaturedCarsCard = ({ children, src }: FeaturedCarsCardType) => {
   return (
     <div className="flex relative h-44 w-[450px] rounded-md overflow-hidden">
       <div className="w-60">
