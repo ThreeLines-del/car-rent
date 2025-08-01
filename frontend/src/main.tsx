@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Cars from "./pages/Cars.tsx";
+import CarDetails from "./pages/CarDetails.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "cars",
         element: <Cars />,
+      },
+      {
+        path: "cars/:id",
+        element: <CarDetails />,
       },
     ],
   },

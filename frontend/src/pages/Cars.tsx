@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Car } from "../../types/types";
 import useFetch from "../hooks/useFetch";
 import Hero from "../components/Hero/Hero";
@@ -78,14 +78,16 @@ const Cars = () => {
 
           <div className="grid grid-cols-4 w-fit gap-5">
             {displayedCars?.map((item, index) => (
-              <CarCard key={index} src={item.imageUrl}>
-                <MakeModelYear
-                  make={item.make}
-                  model={item.model}
-                  year={item.year}
-                />
-                <Price pricePerDay={item.pricePerDay} />
-              </CarCard>
+              <Link key={index} to={item._id}>
+                <CarCard src={item.imageUrl}>
+                  <MakeModelYear
+                    make={item.make}
+                    model={item.model}
+                    year={item.year}
+                  />
+                  <Price pricePerDay={item.pricePerDay} />
+                </CarCard>
+              </Link>
             ))}
           </div>
         </div>

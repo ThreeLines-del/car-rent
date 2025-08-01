@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface Car {
-  id: string;
+  _id: string;
   make: string;
   model: string;
   year: number;

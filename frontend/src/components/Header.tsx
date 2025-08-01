@@ -4,7 +4,7 @@ import Button from "./Button";
 const Header = () => {
   return (
     <header>
-      <nav className="h-12 flex justify-between items-center px-32 bg-white">
+      <nav className="h-12 flex justify-between items-center px-32 bg-white shadow">
         <NavLink to={"."}>
           <h1 className="font-bold">
             <span className="text-[#cf1a17]">AUTO</span>RENT
