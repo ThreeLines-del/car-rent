@@ -89,6 +89,13 @@ const CarDetails = () => {
             </div>
 
             <div className="text-sm flex flex-col gap-2">
+              <p className="text-gray-800">
+                <span className="text-xs text-gray-500 font-semibold">
+                  NUMBER OF BOOKINGS
+                </span>
+                : {data.numBookings}
+              </p>
+
               <p className="text-xs text-gray-500 font-semibold">FEATURES</p>
               <div className="flex flex-wrap gap-2">
                 {data.features.map((feature, index) => (
@@ -97,16 +104,12 @@ const CarDetails = () => {
                   </Button>
                 ))}
               </div>
-
-              <p className="text-gray-800">
-                <span className="text-xs text-gray-500 font-semibold">
-                  NUMBER OF BOOKINGS
-                </span>
-                : {data.numBookings}
-              </p>
             </div>
           </div>
         </div>
+      </div>
+      <div className="h-90 border">
+        <h1>You may also like</h1>
       </div>
     </div>
   );

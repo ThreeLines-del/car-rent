@@ -43,7 +43,7 @@ const FeaturedCarsSection = () => {
                   <Mileage>{item.mileage}</Mileage>
                   <Transmission>{item.transmission}</Transmission>
                 </DetailsDiv>
-                <PriceDiv>
+                <PriceDiv rating={item.rating}>
                   <PricePerDay>{item.pricePerDay}</PricePerDay>
                 </PriceDiv>
               </CardDetails>

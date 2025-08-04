@@ -6,7 +6,7 @@ const ProductImageGallery = ({ images }: { images: string[] }) => {
   return (
     <div className="w-full h-full flex flex-col">
       {/* Main Image */}
-      <div className="h-[400px] rounded overflow-hidden">
+      <div className="h-full rounded overflow-hidden">
         <img
           src={mainImage}
           alt="Main"
