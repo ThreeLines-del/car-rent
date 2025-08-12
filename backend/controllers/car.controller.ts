@@ -1,21 +1,25 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import Car from "../models/car.model.js";
 
-export const getAllCars = async (req: Request, res: Response) => {
+export const getAllCars = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const cars = await Car.find({});
 
     res.send(cars);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: "An unknown error occured" });
-    }
+    next(error);
   }
 };
 
-export const addCar = async (req: Request, res: Response) => {
+export const addCar = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const car = await Car.create(req.body);
     await car.save();
@@ -25,15 +29,15 @@ export const addCar = async (req: Request, res: Response) => {
       make: req.body.make,
     });
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: "An unknown error occured" });
-    }
+    next(error);
   }
 };
 
-export const getCarById = async (req: Request, res: Response) => {
+export const getCarById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { id } = req.params;
     const car = await Car.findOne({ _id: id });
@@ -46,15 +50,15 @@ export const getCarById = async (req: Request, res: Response) => {
 
     res.status(200).json(car);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: "An unknown error occured" });
-    }
+    next(error);
   }
 };
 
-export const removeCar = async (req: Request, res: Response) => {
+export const removeCar = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const car = await Car.findOneAndDelete({ _id: req.body.id });
 
@@ -68,15 +72,15 @@ export const removeCar = async (req: Request, res: Response) => {
       success: true,
     });
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: "An unknown error occured" });
-    }
+    next(error);
   }
 };
 
-export const updateCar = async (req: Request, res: Response) => {
+export const updateCar = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { id, ...updates } = req.body;
 
@@ -93,10 +97,6 @@ export const updateCar = async (req: Request, res: Response) => {
     const newCarList = await Car.find({});
     res.status(200).json(newCarList);
   } catch (error) {
-    if (error instanceof Error) {
-      res.status(500).json({ message: error.message });
-    } else {
-      res.status(500).json({ message: "An unknown error occurred" });
-    }
+    next(error);
   }
 };
