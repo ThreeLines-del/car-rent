@@ -1,5 +1,4 @@
 import { FaLongArrowAltRight } from "react-icons/fa";
-import useFetch from "../hooks/useFetch";
 import { Car } from "../../types/types";
 import FeaturedCarsCard from "./FeaturedCarsCard/FeaturedCarsCard";
 import CardDetails from "./FeaturedCarsCard/CardDetails";
@@ -12,11 +11,15 @@ import DetailsDiv from "./FeaturedCarsCard/DetailDiv";
 import PricePerDay from "./FeaturedCarsCard/PricePerDay";
 import PriceDiv from "./FeaturedCarsCard/PriceDiv";
 import Year from "./FeaturedCarsCard/Year";
+import { useEffect, useState } from "react";
+import carsService from "../services/carsService";
 
 const FeaturedCarsSection = () => {
-  const [data, error, loading] = useFetch<Car[]>(
-    "http://localhost:3000/api/allcars"
-  );
+  const [carsList, setCarsList] = useState<Car[]>();
+
+  useEffect(() => {
+    carsService.getAll().then((data) => setCarsList(data));
+  }, []);
 
   return (
     <div className="flex flex-col items-center">
@@ -32,7 +35,7 @@ const FeaturedCarsSection = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 mt-5">
-          {data?.map((item) => (
+          {carsList?.map((item) => (
             <FeaturedCarsCard src={item.imageUrl}>
               <CardDetails>
                 <Make>{item.make}</Make>

@@ -1,16 +1,19 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { Car } from "../../types/types";
-import useFetch from "../hooks/useFetch";
 import Hero from "../components/Hero/Hero";
 import CarCard from "../components/CarCard/CarCard";
 import MakeModelYear from "../components/CarCard/MakeModelYear";
 import Price from "../components/CarCard/Price";
 import Button from "../components/Button";
+import { useEffect, useState } from "react";
+import carsService from "../services/carsService";
 
 const Cars = () => {
-  const [data, error, loading] = useFetch<Car[]>(
-    "http://localhost:3000/api/allcars"
-  );
+  const [carsList, setCarsList] = useState<Car[]>();
+
+  useEffect(() => {
+    carsService.getAll().then((data) => setCarsList(data));
+  }, []);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("make");
@@ -27,8 +30,8 @@ const Cars = () => {
   }
 
   const displayedCars = typeFilter
-    ? data?.filter((car) => car.make.toLocaleLowerCase() === typeFilter)
-    : data;
+    ? carsList?.filter((car) => car.make.toLocaleLowerCase() === typeFilter)
+    : carsList;
 
   const cars = [
     { key: "make", value: "Toyota" },
