@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import { carRouter } from "../routes/car.route.js";
+import { userRouter } from "../routes/user.route.js";
+import { loginRouter } from "../routes/login.route.js";
+import { bookingRouter } from "../routes/booking.route.js";
 import cors from "cors";
 import { errorHandler } from "../utils/middleware.js";
 import logger from "../utils/logger.js";
@@ -16,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use("/api/", carRouter);
+app.use("/api/", carRouter, userRouter, loginRouter, bookingRouter);
 
 // Error handler
 app.use(errorHandler);

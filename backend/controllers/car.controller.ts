@@ -94,8 +94,7 @@ export const updateCar = async (
       return res.status(404).json({ message: "Car not found" });
     }
 
-    const newCarList = await Car.find({});
-    res.status(200).json(newCarList);
+    res.json(car);
   } catch (error) {
     next(error);
   }
