@@ -52,7 +52,11 @@ const Header = () => {
 
         <div className="flex gap-2 text-sm items-center">
           <img src="/icons/user.png" alt="" />
-          <Button className="bg-blue-950">Bookings</Button>
+          <NavLink to={"bookings"}>
+            <Button className="bg-blue-950 hover:cursor-pointer hover:bg-blue-900">
+              Bookings
+            </Button>
+          </NavLink>
         </div>
       </nav>
     </header>

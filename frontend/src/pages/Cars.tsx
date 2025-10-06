@@ -64,7 +64,7 @@ const Cars = () => {
               {cars.map((item, index) => (
                 <Button
                   key={index}
-                  className={`!text-gray-500 py-1 shadow ${
+                  className={`!text-gray-500 py-1 hover:cursor-pointer  hover:bg-gray-200 shadow ${
                     typeFilter === item.value.toLocaleLowerCase()
                       ? "!text-white bg-[#cf1a17] shadow"
                       : ""
