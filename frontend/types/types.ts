@@ -1,5 +1,9 @@
 import * as React from "react";
 
+export interface Children {
+  children: React.ReactNode;
+}
+
 export interface Car {
   _id: string;
   make: string;
@@ -34,3 +38,36 @@ export interface ButtonType {
   className: string;
   onClick?: () => void;
 }
+
+export interface BookingType {
+  _id: string;
+  userId: string; // reference to User object
+  carId: string; // reference to Car object
+  startDate: Date;
+  endDate: Date;
+  totalPrice: number;
+  status: "pending" | "confirmed" | "cancelled" | "completed";
+  payment: {
+    method: "credit_card" | "mobile_money" | "paypal" | "cash";
+    status: "pending" | "paid" | "failed";
+    transactionId?: string;
+  };
+  pickupLocation: {
+    city: string;
+    country: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+  };
+  dropoffLocation: {
+    city: string;
+    country: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+  };
+}
+
+export type NewBookingType = Omit<BookingType, "_id" | "userId">;

@@ -8,6 +8,7 @@ import About from "./pages/About.tsx";
 import Cars from "./pages/Cars.tsx";
 import CarDetails from "./pages/CarDetails.tsx";
 import Bookings from "./pages/Bookings.tsx";
+import { BookingProvider } from "./contexts/BookingsContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BookingProvider>
+      <RouterProvider router={router} />
+    </BookingProvider>
   </StrictMode>
 );

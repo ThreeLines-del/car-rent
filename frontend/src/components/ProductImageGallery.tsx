@@ -4,7 +4,7 @@ const ProductImageGallery = ({ images }: { images: string[] }) => {
   const [mainImage, setMainImage] = useState(images[0]);
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-[550px] flex flex-col">
       {/* Main Image */}
       <div className="h-full rounded overflow-hidden">
         <img
